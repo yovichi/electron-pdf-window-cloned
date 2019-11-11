@@ -18,7 +18,7 @@
     "url": "https://github.com/yovichi/electron-pdf-window-cloned.git"
   },
   "dependencies": {
-    "deep-extend": "^0.4.1",
+    "deep-extend": "^0.6.0",
     "file-type": "^3.9.0",
     "got": "^7.1.0",
     "is-electron-renderer": "^2.0.1",
