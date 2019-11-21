@@ -8403,6 +8403,7 @@ var pdfjsWebLibs;
           return;
         }
         ensureOverlay().then(function () {
+          document.getElementById('printServiceNotif').classList.add('hidden');
           OverlayManager.open('printServiceOverlay');
         });
         try {
@@ -8423,13 +8424,24 @@ var pdfjsWebLibs;
         // Push window.print in the macrotask queue to avoid being affected by
         // the deprecation of running print() code in a microtask, see
         // https://github.com/mozilla/pdf.js/issues/7547.
+        document.getElementById('printServiceOverlay').classList.add('hidden');
+        document.getElementById('printClose').onclick = function(){
+          document.getElementById('overlayContainer').classList.add('hidden');
+          document.getElementById('printServiceNotif').classList.add('hidden');
+        }
+
         setTimeout(function () {
           if (!activeService) {
             return;
           }
           // Print task cancelled by user.
           print.call(window);
-          setTimeout(abort, 20);
+          setTimeout(function(){
+            abort; 
+            document.getElementById('printServiceNotif').classList.remove('hidden');
+            document.getElementById('overlayContainer').classList.remove('hidden');
+          }, 20);
+
         }, // Tidy-up
         0);
       }
