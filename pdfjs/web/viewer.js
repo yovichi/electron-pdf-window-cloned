@@ -6951,7 +6951,9 @@ var pdfjsWebLibs;
             downloadManager.downloadUrl(url, filename);
           }
           var url = this.baseUrl;
-          var filename = getPDFFileNameFromURL(url);
+          // var filename = getPDFFi1leNameFromURL(url);
+          var urls = url.split("\\");
+          var filename = urls[urls.length - 1];
           var downloadManager = this.downloadManager;
           downloadManager.onerror = function (err) {
             // This error won't really be helpful because it's likely the
