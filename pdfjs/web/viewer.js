@@ -8267,7 +8267,7 @@ var pdfjsWebLibs;
           scratchCanvas = document.createElement('canvas');
         }
         // The size of the canvas in pixels for printing.
-        var PRINT_RESOLUTION = 150;
+        var PRINT_RESOLUTION = 100;
         var PRINT_UNITS = PRINT_RESOLUTION / 72.0;
         scratchCanvas.width = Math.floor(size.width * PRINT_UNITS);
         scratchCanvas.height = Math.floor(size.height * PRINT_UNITS);
